@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #tt {
+            width: 500px;
+            height: 500px;
+            background-color: cyan;
+            font-size: 40px;
+            display: block;
+            margin: auto;
+
+        }
+        button{
+            position: relative;
+            left: 950px;
+            top: 10px;
+        }
+        ul li{
+            margin:0 auto ;
+            width: 500px;
+            background-color:pink;
+            font-size:20px;
+            text-decoration: none;
+           
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="tt" cols="30" rows="10"></textarea>
+    <button>发布留言</button>
+    <ul>
+
+    </ul>
+    <script>
+        var btn=document.querySelector('button');
+        var txt=document.querySelector('#tt');
+        var ul=document.querySelector('ul');
+        btn.onclick=function(){
+            if(txt.value=='')
+            {
+                alert('输入您的留言');
+            }
+            else{
+                var li=document.createElement('li');
+            ul.appendChild(li);
+            li.innerHTML=txt.value;
+            txt.value='';
+            }
+        }
+    </script>
+</body>
+
+</html>

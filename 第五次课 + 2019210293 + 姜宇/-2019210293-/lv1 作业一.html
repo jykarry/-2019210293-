@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style: none;
+        background-color: pink;
+        width: 1000px;
+        margin: 50px auto;
+        overflow: hidden;
+        font-size: ;
+    }
+
+    ul li {
+        float: left;
+        width: 12.5%;
+        text-align: center;
+        padding: 5px 0;
+        font-weight: bolder;
+    }
+
+    #hf {
+        background-color: green;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 40px;
+        float: right;
+    }
+
+    div {
+        background-color: crimson;
+        width: 1000px;
+        margin: 10px auto;
+        display: none;
+        font-size: 20px;
+    }
+</style>
+
+<body>
+    <ul>
+        <li>红</li>
+        <li>绿</li>
+        <li>红</li>
+        <li>绿</li>
+        <li>红</li>
+        <li>绿</li>
+        <li>红</li>
+        <li>绿</li>
+
+    </ul>
+    <div>我是红1</div>
+    <div>我是绿1</div>
+    <div>我是红2</div>
+    <div>我是绿2</div>
+    <div>我是红3</div>
+    <div>我是绿3</div>
+    <div>我是红4</div>
+    <div>我是绿4</div>
+
+    <button id="hf">恢复</button>
+    <script>
+        var hf = document.getElementById('hf');
+        var ul = document.getElementsByTagName('li');
+        var div = document.getElementsByTagName('div');
+
+        for (var i = 0; i < ul.length; i++) {
+            ul[i].setAttribute('indest', i);
+
+            if (i % 2 == 0) {
+                ul[i].onclick = function () {
+                    for (var i = 0; i < ul.length; i++) {
+                        ul[i].style.backgroundColor = '';
+                    }
+                    this.style.backgroundColor = 'red';
+                    var indest = this.getAttribute('indest');
+                    for (var i = 0; i < ul.length; i++) {
+                        div[i].style.display = 'none';
+                    }
+
+                    div[indest].style.display = 'block';
+                }
+            }
+            else {
+                ul[i].onclick = function () {
+                    for (var i = 0; i < ul.length; i++) {
+                        ul[i].style.backgroundColor = '';
+                    }
+                    this.style.backgroundColor = 'green';
+                    var indest = this.getAttribute('indest');
+                    for (var i = 0; i < ul.length; i++) {
+                        div[i].style.display = 'none';
+                    }
+                    div[indest].style.display = 'block';
+                }
+            }
+            hf.onclick = function () {
+                for (var i = 0; i < ul.length; i++) {
+                    ul[i].style.backgroundColor = '';
+                    for (var i = 0; i < ul.length; i++) {
+                        div[i].style.display = 'none';
+                    }
+                }
+
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>
